@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#082c68">
+<title>Uma carta para Mikaella 💙</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Arial,sans-serif;color:#fff;text-align:center;background:radial-gradient(circle at top,#3188d8,#0b3474 55%,#04142f);overflow-x:hidden}
+.wrap{width:100%;max-width:440px;position:relative;z-index:1}
+h1{font-size:clamp(2rem,9vw,3rem);margin:0 0 8px;color:#e2f5ff}
+.subtitle{color:#c3e7ff;margin:0 0 28px}
+.envelope-area{height:210px;display:flex;align-items:center;justify-content:center;perspective:900px;margin:10px 0 18px}
+.envelope{position:relative;width:min(320px,85vw);height:180px;background:#b8e4ff;border-radius:8px;box-shadow:0 15px 35px #00102c66;cursor:pointer;transition:transform .3s}
+.envelope:hover{transform:translateY(-4px)}
+.envelope:before{content:"";position:absolute;inset:0;background:#8dcaff;clip-path:polygon(0 0,50% 58%,100% 0);z-index:4;transform-origin:top;transition:transform .8s;backface-visibility:hidden}
+.envelope:after{content:"";position:absolute;inset:0;background:#d7efff;clip-path:polygon(0 100%,0 0,50% 57%,100% 0,100% 100%);z-index:2}
+.flap{position:absolute;inset:0;background:#5eaeef;clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transition:transform .8s;z-index:5}
+.seal{position:absolute;z-index:6;left:50%;top:51%;transform:translate(-50%,-50%);font-size:35px;transition:opacity .3s}
+.letter{position:absolute;left:6%;width:88%;bottom:5px;height:165px;overflow:auto;padding:19px 16px;background:#f8fcff;color:#12335d;border-radius:8px;box-shadow:0 3px 12px #00102c22;z-index:1;transition:transform 1s,bottom 1s,height 1s;line-height:1.65;text-align:left;font-size:.96rem}
+.letter h2{text-align:center;color:#1264aa;margin:0 0 12px;font-size:1.25rem}
+.letter p{margin:0 0 12px}
+.envelope.open .flap,.envelope.open:before{transform:rotateX(180deg);z-index:0}
+.envelope.open .seal{opacity:0}
+.envelope.open .letter{transform:translateY(-115px);height:260px;bottom:0;z-index:7;box-shadow:0 12px 28px #00102c66}
+.hint{font-size:.9rem;color:#d3edff;margin:6px 0 20px}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+button{border:0;border-radius:30px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;color:#063064;background:#dff4ff;box-shadow:0 5px 18px #001b3a33}
+button.secondary{background:#ffffff18;color:white;border:1px solid #c3e7ff88}
+button:focus-visible{outline:3px solid white;outline-offset:3px}
+.note{font-size:.83rem;color:#c3e7ff;min-height:1.4em;margin-top:14px}
+.heart{position:fixed;bottom:-30px;z-index:0;pointer-events:none;animation:float 7s linear forwards;color:#bdeaff}
+@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Para Mikaella 💙</h1>
+  <p class="subtitle">Preparei uma cartinha só para você...</p>
+  <div class="envelope-area">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir ou fechar a carta">
+      <div class="letter">
+        <h2>Minha Mikaella 💌</h2>
+        <p>Você é uma das melhores coisas que já aconteceram na minha vida.</p>
+        <p>Cada momento ao seu lado é especial, e eu quero continuar criando lembranças lindas com você.</p>
+        <p>Quero continuar sorrindo com você, vivendo momentos especiais e construindo muitas lembranças bonitas juntos.</p>
+        <p><strong>Eu te amo! ❤️</strong></p>
+        <p style="text-align:right;color:#1264aa"><em>Com amor, seu namorado 💙</em></p>
+      </div>
+      <div class="flap"></div><div class="seal">💙</div>
+    </div>
+  </div>
+  <p class="hint" id="hint">Toque no envelope para abrir sua carta ✨</p>
+  <div class="buttons">
+    <button id="openBtn">💌 Abrir a carta</button>
+    <button class="secondary" id="musicBtn">🎵 Tocar nossa música</button>
+  </div>
+  <p class="note" id="note" aria-live="polite">A música “Tu Mandas No Meu Coração” abre no YouTube. 💙</p>
+</main>
+<script>
+const envelope=document.getElementById('envelope');
+const hint=document.getElementById('hint');
+function toggleLetter(){
+  const open=envelope.classList.toggle('open');
+  hint.textContent=open?'Sua cartinha está aberta. Leia com carinho 💙':'Toque no envelope para abrir sua carta ✨';
+  document.getElementById('openBtn').textContent=open?'💙 Fechar a carta':'💌 Abrir a carta';
+}
+envelope.addEventListener('click',toggleLetter);
+envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleLetter();}});
+document.getElementById('openBtn').addEventListener('click',toggleLetter);
+document.getElementById('musicBtn').addEventListener('click',()=>{
+  window.open('https://www.youtube.com/results?search_query=Os+Travessos+Tu+Mandas+No+Meu+Cora%C3%A7%C3%A3o','_blank','noopener');
+  document.getElementById('note').textContent='Abri a busca da música no YouTube. Escolha a versão que vocês gostam. 🎶';
+});
+function heart(){
+  const h=document.createElement('span');h.className='heart';h.textContent=Math.random()>.5?'♡':'💙';
+  h.style.left=Math.random()*100+'vw';h.style.fontSize=(17+Math.random()*18)+'px';
+  h.style.animationDuration=(5+Math.random()*4)+'s';document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9500);
+}
+setInterval(heart,650);
+</script>
+</body>
+</html>
